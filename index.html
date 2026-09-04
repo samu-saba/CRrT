@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Blocco indicizzazione motori di ricerca (effetto "Non in elenco") -->
     <meta name="robots" content="noindex, nofollow">
 
@@ -38,21 +38,59 @@
         }
 
         .section {
-            margin-bottom: 35px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #fafafa;
         }
 
-        .section-title {
-            margin: 0 0 15px 0;
-            color: #1a365d;
+        details {
+            width: 100%;
+        }
+
+        summary {
+            background-color: #1a365d;
+            color: #ffffff;
             font-size: 1.4rem;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #cccccc;
+            font-weight: bold;
+            padding: 15px 20px;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            list-style: none; /* Rimuove la freccia di default su alcuni browser */
+        }
+
+        /* Aggiunta di una freccetta personalizzata per il menu a cascata */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: ' ▼';
+            font-size: 1rem;
+            float: right;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #cccccc;
         }
 
         .track {
             margin-bottom: 15px;
             display: flex;
             flex-direction: column;
+        }
+
+        .track:last-child {
+            margin-bottom: 0;
         }
 
         .track-title {
@@ -77,478 +115,489 @@
 
     <!-- SEZIONE SOPRANI -->
     <div class="section">
-        <h2 class="section-title">Soprani</h2>
+        <details>
+            <summary>Soprani</summary>
+            <div class="section-content">
+                <div class="track">
+                    <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Vergin santa.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Vergin santa.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Santa Maria del cammino.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Santa Maria del cammino.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2015/02 - Prodigio d'amore - Soprano.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2015/02 - Prodigio d'amore - Soprano.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2020/1 AVE DOLCE MARIA.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2020/1 AVE DOLCE MARIA.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/35-Mi affido a te -Soprani/NOZZE A CANA.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/35-Mi affido a te -Soprani/NOZZE A CANA.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/38- Mi arrendo al Tuo amore - Soprani/Vero Cibo_[SOPRANI].mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/38- Mi arrendo al Tuo amore - Soprani/Vero Cibo_[SOPRANI].mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/34-Sentieri di speranza-Soprani/Gesù ricordati di me SOP.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/34-Sentieri di speranza-Soprani/Gesù ricordati di me SOP.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2018/07 - Spirito Santo dolce presenza.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2018/07 - Spirito Santo dolce presenza.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/28-Nelle tue mani-Soprani/1 SALVE REGINA (NUOVA VERSIONE).MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/28-Nelle tue mani-Soprani/1 SALVE REGINA (NUOVA VERSIONE).MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/29-Risorto per amore-Soprani/6 GIOISCI FIGLIA DI SION.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/29-Risorto per amore-Soprani/6 GIOISCI FIGLIA DI SION.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Alleluia (Salmo 118).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Alleluia (Salmo 118).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAL. Salmo 122 - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Sal 122 (parti adattate).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAL. Salmo 122 - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Sal 122 (parti adattate).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Il nostro cuore offriamo a te soprano.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Il nostro cuore offriamo a te soprano.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Santo.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Santo.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Agnello di Dio6.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Agnello di Dio6.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/28-Nelle tue mani-Soprani/8 VIENI AL SIGNOR.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/28-Nelle tue mani-Soprani/8 VIENI AL SIGNOR.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Sotto l'ombra.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Sotto l'ombra.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN. Magnificat (172) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="RnS - Magnificat172.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN. Magnificat (172) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="RnS - Magnificat172.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Fedele è Dio soprano.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Fedele è Dio soprano.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Soprani 2</span>
+                    <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Fedele è Dio soprano basso.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Soprani 2</span>
-            <audio controls class="audio-soprani" src="Soprani/Soprani 2016/Fedele è Dio soprano basso.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/GESÙ TU SEI IL SIGNOR.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/GESÙ TU SEI IL SIGNOR.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Soprani</span>
+                    <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/TU SEI IL RE soprano 1º.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Soprani</span>
-            <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/TU SEI IL RE soprano 1º.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Soprani 2</span>
-            <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/TU SEI IL RE soprano 2º (battute 139 ss).mp3"></audio>
-        </div>
-
+                <div class="track">
+                    <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Soprani 2</span>
+                    <audio controls class="audio-soprani" src="Soprani/SOPRANI 2026/TU SEI IL RE soprano 2º (battute 139 ss).mp3"></audio>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- SEZIONE CONTRALTI -->
     <div class="section">
-        <h2 class="section-title">Contralti</h2>
+        <details>
+            <summary>Contralti</summary>
+            <div class="section-content">
+                <div class="track">
+                    <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Vergin santa.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Vergin santa.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="Santa Maria del cammino.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="Santa Maria del cammino.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/Contralti 2015/Contralti 2015/02 Prodigio d'amore - contralto.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/Contralti 2015/Contralti 2015/02 Prodigio d'amore - contralto.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/CONTRALTI 2020/Ave-dolce-Maria-Contralto.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/CONTRALTI 2020/Ave-dolce-Maria-Contralto.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/35- Mi affido a te- Contralti/35- Mi affido a te- Contralti/NOZZE A CANA.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/35- Mi affido a te- Contralti/35- Mi affido a te- Contralti/NOZZE A CANA.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Contralti 2</span>
+                    <audio controls class="audio-contralti" src="contralti/35- Mi affido a te- Contralti/35- Mi affido a te- Contralti/NOZZE A CANA  SECONDO CONTRALTO.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Contralti 2</span>
-            <audio controls class="audio-contralti" src="contralti/35- Mi affido a te- Contralti/35- Mi affido a te- Contralti/NOZZE A CANA  SECONDO CONTRALTO.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/38- Mi arrendo al Tuo amore - Contralti/38- Mi arrendo al Tuo amore - Contralti/Vero Cibo_[CONTRALTI].mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/38- Mi arrendo al Tuo amore - Contralti/38- Mi arrendo al Tuo amore - Contralti/Vero Cibo_[CONTRALTI].mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/34-Sentieri di speranza- Contralti/34-Sentieri di speranza- Contralti/Gesù ricordati di me CON.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/34-Sentieri di speranza- Contralti/34-Sentieri di speranza- Contralti/Gesù ricordati di me CON.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/Contralti 2018/16 Spirito santo dolce presenza.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/Contralti 2018/16 Spirito santo dolce presenza.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/28- Nelle tue mani-Contralti/28- Nelle tue mani-Contralti/1 SALVE REGINA NUOVA VERS..MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/28- Nelle tue mani-Contralti/28- Nelle tue mani-Contralti/1 SALVE REGINA NUOVA VERS..MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/32-Io scelgo te-Contralti/32-Io scelgo te-Contralti/3 BENEDIRO' IL TUO NOME.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/32-Io scelgo te-Contralti/32-Io scelgo te-Contralti/3 BENEDIRO' IL TUO NOME.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Alleluia (Salmo 118).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Alleluia (Salmo 118).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAL. Salmo 122 - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="Sal 122 (parti adattate).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAL. Salmo 122 - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="Sal 122 (parti adattate).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/Contralti 2016/Il nostro cuore offriamo a te - CONTR A.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/Contralti 2016/Il nostro cuore offriamo a te - CONTR A.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Contralti 2</span>
+                    <audio controls class="audio-contralti" src="contralti/Contralti 2016/Il nostro cuore offriamo a te - CONTR B.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Contralti 2</span>
-            <audio controls class="audio-contralti" src="contralti/Contralti 2016/Il nostro cuore offriamo a te - CONTR B.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Santo.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Santo.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Agnello di Dio6.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Agnello di Dio6.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/28- Nelle tue mani-Contralti/28- Nelle tue mani-Contralti/8 VIENI AL SIGNOR.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/28- Nelle tue mani-Contralti/28- Nelle tue mani-Contralti/8 VIENI AL SIGNOR.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Sotto l'ombra.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Sotto l'ombra.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN. Magnificat (172) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="RnS - Magnificat172.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN. Magnificat (172) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="RnS - Magnificat172.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/Contralti 2016/Fedele è Dio per sempre - CONTR.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/Contralti 2016/Fedele è Dio per sempre - CONTR.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/CONTRALTI 2026/Gesù tu sei il Signore Contralti.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/CONTRALTI 2026/Gesù tu sei il Signore Contralti.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Contralti</span>
-            <audio controls class="audio-contralti" src="contralti/CONTRALTI 2026/Tu sei il Re dei re Contralti.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Contralti</span>
+                    <audio controls class="audio-contralti" src="contralti/CONTRALTI 2026/Tu sei il Re dei re Contralti.mp3"></audio>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- SEZIONE TENORI -->
     <div class="section">
-        <h2 class="section-title">Tenori</h2>
+        <details>
+            <summary>Tenori</summary>
+            <div class="section-content">
+                <div class="track">
+                    <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Vergin santa.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Vergin santa.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Santa Maria del cammino.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Santa Maria del cammino.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2015/Prodigio d'amore tenori.m4a"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2015/Prodigio d'amore tenori.m4a"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2020/1 AVE DOLCE MARIA.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2020/1 AVE DOLCE MARIA.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/35-Mi affido a te -Tenori/Tenore Nozze a Cana.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/35-Mi affido a te -Tenori/Tenore Nozze a Cana.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/38- Mi arrendo al Tuo amore - Tenori/Vero Cibo_[TENORI].mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/38- Mi arrendo al Tuo amore - Tenori/Vero Cibo_[TENORI].mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/34-Sentieri di speranza- Tenori/Gesù ricordati di me TEN.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/34-Sentieri di speranza- Tenori/Gesù ricordati di me TEN.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2018/spirito santo dolce presenza.m4a"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2018/spirito santo dolce presenza.m4a"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/28-Nelle tue mani-Tenori/1 SALVE REGINA.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/28-Nelle tue mani-Tenori/1 SALVE REGINA.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/32-Io scelgo te-Tenori/3 BENEDIRO' IL TUO NOME.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/32-Io scelgo te-Tenori/3 BENEDIRO' IL TUO NOME.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Alleluia (Salmo 118).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Alleluia (Salmo 118).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAL. Salmo 122 - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Sal 122 (parti adattate).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAL. Salmo 122 - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Sal 122 (parti adattate).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Il nostro cuore offriamo a te.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Il nostro cuore offriamo a te.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Santo.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Santo.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Agnello di Dio6.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Agnello di Dio6.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/28-Nelle tue mani-Tenori/8 VIENI AL SIGNOR.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/28-Nelle tue mani-Tenori/8 VIENI AL SIGNOR.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Sotto l'ombra.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Sotto l'ombra.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN. Magnificat (172) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="RnS - Magnificat172.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN. Magnificat (172) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="RnS - Magnificat172.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Fedele è Dio per sempre A.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Fedele è Dio per sempre A.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Tenori 2</span>
+                    <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Fedele è Dio per sempre B.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Tenori 2</span>
-            <audio controls class="audio-tenori" src="Tenori/Tenori 2016/Fedele è Dio per sempre B.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/TENORI 2026/Gesù tu sei il signor - Tenori.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">ACC. Gesù tu sei il Signore (561) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/TENORI 2026/Gesù tu sei il signor - Tenori.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Tenori</span>
-            <audio controls class="audio-tenori" src="Tenori/TENORI 2026/Tu sei il Re - Tenori.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">ACC. Tu sei il re dei re (568) - Parte Tenori</span>
+                    <audio controls class="audio-tenori" src="Tenori/TENORI 2026/Tu sei il Re - Tenori.mp3"></audio>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- SEZIONE BASSI -->
     <div class="section">
-        <h2 class="section-title">Bassi</h2>
+        <details>
+            <summary>Bassi</summary>
+            <div class="section-content">
+                <div class="track">
+                    <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Vergin santa.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Intro Pellegrinaggio. Vergin Santa (297) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Vergin santa.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="Santa Maria del cammino.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Inizio Pellegrinaggio. Santa Maria del cammino (231) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="Santa Maria del cammino.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/Bassi 2015/02 - Prodigio D'amore - Basso.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 1° Mistero. Prodigio d'amore (449) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/Bassi 2015/02 - Prodigio D'amore - Basso.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/BASSI 2020/01 Ave dolce maria.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (1,2,3,4). Ave dolce Maria (504) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/BASSI 2020/01 Ave dolce maria.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/35-Mi affido a te - Bassi/35-Mi affido a te - Bassi/Figli di Re- Bassi.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 2° Mistero. Nozze a Cana (337) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/35-Mi affido a te - Bassi/35-Mi affido a te - Bassi/Figli di Re- Bassi.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/38- Mi arrendo al Tuo amore - Bassi/38- Mi arrendo al Tuo amore - Bassi/Vero Cibo_[BASSI].mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 3° Mistero. Vero cibo è il tuo corpo (378) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/38- Mi arrendo al Tuo amore - Bassi/38- Mi arrendo al Tuo amore - Bassi/Vero Cibo_[BASSI].mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/34-Sentieri di speranza-Bassi/34-Sentieri di speranza-Bassi/Gesù ricordati di me BAS.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 4° Mistero. Gesù ricordati di me (325) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/34-Sentieri di speranza-Bassi/34-Sentieri di speranza-Bassi/Gesù ricordati di me BAS.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/Bassi 2018/Bassi - Spirito Santo, dolce presenza - .mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Fine 5° Mistero. Spirito Santo, dolce presenza (489) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/Bassi 2018/Bassi - Spirito Santo, dolce presenza - .mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/28-Nelle tue mani-Bassi/28-Nelle tue mani-Bassi/10 SALVE REGINA.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">Post-invocazioni (5). Salve Regina (230) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/28-Nelle tue mani-Bassi/28-Nelle tue mani-Bassi/10 SALVE REGINA.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/32-Io scelgo te-Bassi/32-Io scelgo te-Bassi/3 BENEDIRO' IL TUO NOME.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ING. Gioisci figlia di Sion (119) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/32-Io scelgo te-Bassi/32-Io scelgo te-Bassi/3 BENEDIRO' IL TUO NOME.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA GLO. Gloria a Dio (123) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="Guglielmo Amadei - La nostra festa è Cristo - 03. Gloria.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Alleluia (Salmo 118).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA ALL. Alleluia salmo 118 (23) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Alleluia (Salmo 118).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAL. Salmo 122 - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="Sal 122 (parti adattate).mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAL. Salmo 122 - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="Sal 122 (parti adattate).mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/Bassi 2016/Il nostro cuore offriamo a te.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA OFF. Il nostro cuore offriamo a te (459) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/Bassi 2016/Il nostro cuore offriamo a te.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Santo.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA SAN. Santo (mi-) (235) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Santo.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Agnello di Dio6.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA AGN. Agnello di Dio (6) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Agnello di Dio6.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/28-Nelle tue mani-Bassi/28-Nelle tue mani-Bassi/17 VIENI AL SIGNOR.MP3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA COM1. Vieni al Signor (298) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/28-Nelle tue mani-Bassi/28-Nelle tue mani-Bassi/17 VIENI AL SIGNOR.MP3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Sotto l'ombra.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA RIN. Sotto l'ombra (265) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Sotto l'ombra.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN. Magnificat (172) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="RnS - Magnificat172.mp3"></audio>
+                </div>
 
-        <div class="track">
-            <span class="track-title">MESSA FIN. Magnificat (172) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="RnS - Magnificat172.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Bassi</span>
-            <audio controls class="audio-bassi" src="bassi/Bassi 2016/Fedele è Dio per sempre.mp3"></audio>
-        </div>
+                <div class="track">
+                    <span class="track-title">MESSA FIN2. Fedele è Dio per sempre (458) - Parte Bassi</span>
+                    <audio controls class="audio-bassi" src="bassi/Bassi 2016/Fedele è Dio per sempre.mp3"></audio>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- SCRIPT GESTIONE RIPRODUZIONE -->
