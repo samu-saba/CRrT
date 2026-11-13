@@ -2632,14 +2632,12 @@
             document.getElementById('rename-playlist-btn').addEventListener('click', () => {
                 const oldName = state.activePlaylist;
                 const newName = prompt('Nuovo nome per "' + oldName + '":', oldName);
-                if (newName) {
+                if (newName && newName.trim() && newName.trim() !== oldName) {
                     const cleanName = newName.trim();
-                    if (cleanName && cleanName !== oldName) {
-                        state.playlists[cleanName] = state.playlists[oldName];
-                        delete state.playlists[oldName];
-                        state.activePlaylist = cleanName;
-                        saveState();
-                    }
+                    state.playlists[cleanName] = state.playlists[oldName];
+                    delete state.playlists[oldName];
+                    state.activePlaylist = cleanName;
+                    saveState();
                 }
             });
 

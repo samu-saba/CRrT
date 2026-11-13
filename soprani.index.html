@@ -3040,9 +3040,8 @@
             document.getElementById('rename-playlist-btn').addEventListener('click', () => {
                 const oldName = state.activePlaylist;
                 const newName = prompt('Nuovo nome per "' + oldName + '":', oldName);
-                const cleanName = newName ? newName.trim() : '';
-
-                if (cleanName && cleanName !== oldName) {
+                if (newName && newName.trim() && newName.trim() !== oldName) {
+                    const cleanName = newName.trim();
                     state.playlists[cleanName] = state.playlists[oldName];
                     delete state.playlists[oldName];
                     state.activePlaylist = cleanName;
