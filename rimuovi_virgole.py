@@ -1,11 +1,14 @@
 import os
 
-def remove_commas_from_filenames(root_dir):
+def remove_commas_from_files_and_folders(root_dir):
     print(f"Scansione della cartella: {root_dir}")
-    count = 0
+    count_files = 0
+    count_dirs = 0
     
-    # os.walk con topdown=False permette di rinominare prima i file e poi le cartelle (se necessario)
+    # topdown=False è fondamentale: elabora prima i file e le cartelle interne, poi quelle esterne
     for dirpath, dirnames, filenames in os.walk(root_dir, topdown=False):
+        
+        # 1. Rinomina i file che contengono virgole
         for filename in filenames:
             if ',' in filename:
                 old_path = os.path.join(dirpath, filename)
@@ -14,16 +17,32 @@ def remove_commas_from_filenames(root_dir):
                 
                 try:
                     os.rename(old_path, new_path)
-                    print(f"[RINOMINATO] '{filename}' -> '{new_filename}'")
-                    count += 1
+                    print(f"[FILE RINOMINATO] '{filename}' -> '{new_filename}'")
+                    count_files += 1
                 except Exception as e:
-                    print(f"[ERRORE] Impossibile rinominare '{filename}': {e}")
+                    print(f"[ERRORE FILE] Impossibile rinominare '{filename}': {e}")
                     
-    print(f"Operazione completata. Totale file rinominati: {count}")
+        # 2. Rinomina le cartelle che contengono virgole
+        for dirname in dirnames:
+            if ',' in dirname:
+                old_path = os.path.join(dirpath, dirname)
+                new_dirname = dirname.replace(',', '')
+                new_path = os.path.join(dirpath, new_dirname)
+                
+                try:
+                    os.rename(old_path, new_path)
+                    print(f"[CARTELLA RINOMINATA] '{dirname}' -> '{new_dirname}'")
+                    count_dirs += 1
+                except Exception as e:
+                    print(f"[ERRORE CARTELLA] Impossibile rinominare '{dirname}': {e}")
+                    
+    print(f"\nOperazione completata!")
+    print(f"- File rinominati: {count_files}")
+    print(f"- Cartelle rinominate: {count_dirs}")
 
 if __name__ == "__main__":
     target_folder = r"F:\Progetti Git\CRrT"
     if os.path.exists(target_folder):
-        remove_commas_from_filenames(target_folder)
+        remove_commas_from_files_and_folders(target_folder)
     else:
         print(f"La cartella {target_folder} non esiste.")
