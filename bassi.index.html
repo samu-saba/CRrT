@@ -2802,5 +2802,30 @@
             updateUI();
         });
     </script>
+document.addEventListener("DOMContentLoaded", function() {
+    const audioElements = document.querySelectorAll("audio.global-audio, audio.playlist-audio");
+    
+    audioElements.forEach(audio => {
+        let originalSrc = audio.getAttribute("src");
+        if (originalSrc) {
+            // Forziamo la codifica corretta delle virgole e degli spazi per i dispositivi mobili
+            let fixedSrc = originalSrc.replace(/,/g, '%2C');
+            if (originalSrc !== fixedSrc) {
+                audio.setAttribute("src", fixedSrc);
+            }
+            
+            // Intercetta l'errore di riproduzione tipico di Android sui caratteri speciali
+            audio.addEventListener('error', function(e) {
+                console.warn("Tentativo di recupero stream audio per Android:", fixedSrc);
+                // Riprova a ricaricare l'audio forzando il timestamp per saltare la cache
+                setTimeout(() => {
+                    audio.src = fixedSrc + (fixedSrc.includes('?') ? '&' : '?') + 't=' + Date.now();
+                    audio.load();
+                }, 500);
+            }, { once: true });
+        }
+    });
+});
+    </script>
 </body>
 </html>
