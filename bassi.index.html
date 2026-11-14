@@ -2532,7 +2532,6 @@
             </details>
         </div>
     </div>
-    </div>
         
     <!-- SCHEDA 2: LE MIE PLAYLIST -->
     <div id="playlist-tab" class="tab-content">
@@ -2713,7 +2712,7 @@
                                 <button class="pl-remove-btn" title="Rimuovi dalla playlist">✕</button>
                             </div>
                         </div>
-                        <audio controls controlsList="nodownload" class="playlist-audio" preload="none" src="%24%7Bitem.src%7D"></audio>
+                        <audio controls controlsList="nodownload" class="playlist-audio" preload="none" src="${item.src}"></audio>
                     `;
 
                     // Azioni Sposta Su / Giù / Rimuovi
@@ -2776,11 +2775,13 @@
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase().trim();
                 sections.forEach(section => {
+                    const sectionName = (section.getAttribute('data-section-name') || '').toLowerCase();
+                    const folderMatch = term !== '' && sectionName.includes(term);
                     const tracks = section.querySelectorAll('.track');
                     let visible = 0;
                     tracks.forEach(track => {
                         const title = track.getAttribute('data-title') || '';
-                        if (title.includes(term)) {
+                        if (folderMatch || title.includes(term)) {
                             track.style.display = 'flex';
                             visible++;
                         } else {
