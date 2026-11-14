@@ -8,8 +8,15 @@ owner = "samu-saba"
 repo = "CRrT"
 branch = "main"
 
-# Definizione delle tre sezioni da elaborare
+# Definizione delle sezioni da elaborare (inclusa la sezione Bassi)
 sections = [
+    {
+        "title": "Sezione Bassi",
+        "code": "bassi",
+        "storage_key": "rns_bassi_playlists_v1",
+        "local_path": r"F:\Progetti Git\CRrT\bassi",
+        "output_file": r"F:\Progetti Git\CRrT\bassi.index.html"
+    },
     {
         "title": "Sezione Soprani",
         "code": "Soprani",
@@ -343,7 +350,6 @@ for sec in sections:
             function attachGlobalAudioHandlers() {{
                 const allAudios = document.querySelectorAll('audio');
                 allAudios.forEach((audio) => {{
-                    // Evita di duplicare i listener se già presenti
                     if (audio.dataset.handled === "true") return;
                     audio.dataset.handled = "true";
 
@@ -356,7 +362,6 @@ for sec in sections:
                     }});
 
                     audio.addEventListener('ended', () => {{
-                        // Gestione riproduzione continua sequenziale
                         const currentTabContent = audio.closest('.tab-content');
                         if (!currentTabContent) return;
                         const audiosInTab = Array.from(currentTabContent.querySelectorAll('audio'));
@@ -465,7 +470,6 @@ for sec in sections:
 
                     tracks.forEach(track => {{
                         const title = track.getAttribute('data-title') || '';
-                        // Corrispondenza se il termine è nel nome del brano O nel nome della cartella
                         if (title.includes(term) || sectionName.includes(term)) {{
                             track.style.display = 'flex';
                             visibleCount++;
