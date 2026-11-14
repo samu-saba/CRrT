@@ -15,21 +15,21 @@ sections = [
         "code": "Soprani",
         "storage_key": "rns_soprani_playlists_v1",
         "local_path": r"F:\Progetti Git\CRrT\Soprani",
-        "output_file": r"F:\Progetti Git\CRrT\Soprani-index.html"
+        "output_file": r"F:\Progetti Git\CRrT\Soprani.index.html"
     },
     {
         "title": "Sezione Tenori",
         "code": "Tenori",
         "storage_key": "rns_tenori_playlists_v1",
         "local_path": r"F:\Progetti Git\CRrT\Tenori",
-        "output_file": r"F:\Progetti Git\CRrT\Tenori-index.html"
+        "output_file": r"F:\Progetti Git\CRrT\Tenori.index.html"
     },
     {
         "title": "Sezione Contralti",
         "code": "contralti",
         "storage_key": "rns_contralti_playlists_v1",
         "local_path": r"F:\Progetti Git\CRrT\contralti",
-        "output_file": r"F:\Progetti Git\CRrT\contralti-index.html"
+        "output_file": r"F:\Progetti Git\CRrT\contralti.index.html"
     }
 ]
 
@@ -200,17 +200,16 @@ for sec in sections:
                 for file_name in audio_files:
                     rel_path = os.path.relpath(os.path.join(root, file_name), local_base_path).replace("\\", "/")
                     encoded_rel_path = "/".join([quote(p) for p in rel_path.split("/")])
-                    # Utilizza esattamente il nome della cartella nel branch (es. Soprani, Tenori, contralti)
                     file_url = f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{section_code}/{encoded_rel_path}"
                     
                     tracks_html += f"""
-                    <div class="track" data-title="{file_name.lower()}">
+                    <div class="track" data-title="{file_name.lower()}" data-folder="{folder_name.lower()}">
                         <span class="track-title">{file_name}</span>
                         <audio controls controlsList="nodownload" class="global-audio" src="{file_url}"></audio>
                     </div>"""
                         
                 html_content += f"""
-        <div class="section" data-section-name="{folder_name}">
+        <div class="section" data-section-name="{folder_name.lower()}">
             <details>
                 <summary>📁 {folder_name}</summary>
                 <div class="section-content">{tracks_html}
@@ -314,7 +313,7 @@ for sec in sections:
             document.getElementById('rename-playlist-btn').addEventListener('click', () => {{
                 const oldName = state.activePlaylist;
                 const newName = prompt('Nuovo nome per "' + oldName + '":', oldName);
-                if (newName && name_clean = newName.trim() && newName.trim() !== oldName) {{
+                if (newName && newName.trim() && newName.trim() !== oldName) {{
                     const cleanName = newName.trim();
                     state.playlists[cleanName] = state.playlists[oldName];
                     delete state.playlists[oldName];
@@ -340,6 +339,42 @@ for sec in sections:
                 state.activePlaylist = e.target.value;
                 saveState();
             }});
+
+            function attachGlobalAudioHandlers() {{
+                const allAudios = document.querySelectorAll('audio');
+                allAudios.forEach((audio) => {{
+                    // Evita di duplicare i listener se già presenti
+                    if (audio.dataset.handled === "true") return;
+                    audio.dataset.handled = "true";
+
+                    audio.addEventListener('contextmenu', e => e.preventDefault());
+                    
+                    audio.addEventListener('play', () => {{
+                        document.querySelectorAll('audio').forEach(o => {{ 
+                            if (o !== audio) o.pause(); 
+                        }});
+                    }});
+
+                    audio.addEventListener('ended', () => {{
+                        // Gestione riproduzione continua sequenziale
+                        const currentTabContent = audio.closest('.tab-content');
+                        if (!currentTabContent) return;
+                        const audiosInTab = Array.from(currentTabContent.querySelectorAll('audio'));
+                        const currentIdx = audiosInTab.indexOf(audio);
+                        
+                        if (currentIdx !== -1) {{
+                            for (let i = currentIdx + 1; i < audiosInTab.length; i++) {{
+                                const nextAudio = audiosInTab[i];
+                                const parentTrack = nextAudio.closest('.track');
+                                if (!parentTrack || parentTrack.style.display !== 'none') {{
+                                    nextAudio.play();
+                                    break;
+                                }}
+                            }}
+                        }}
+                    }});
+                }});
+            }}
 
             function updateUI() {{
                 const currentList = state.playlists[state.activePlaylist] || [];
@@ -415,63 +450,43 @@ for sec in sections:
                     customTracksContainer.appendChild(trackDiv);
                 }});
 
-                const plAudios = Array.from(customTracksContainer.querySelectorAll('.playlist-audio'));
-                plAudios.forEach((audio, idx) => {{
-                    audio.addEventListener('contextmenu', e => e.preventDefault());
-                    audio.addEventListener('ended', () => {{
-                        if (idx + 1 < plAudios.length) {{
-                            plAudios[idx + 1].play();
-                        }}
-                    }});
-                    audio.addEventListener('play', () => {{
-                        document.querySelectorAll('audio').forEach(o => {{ if (o !== audio) o.pause(); }});
-                    }});
-                }});
+                attachGlobalAudioHandlers();
             }}
 
-            const allLibraryAudios = Array.from(document.querySelectorAll('.global-audio'));
             const searchInput = document.getElementById('search-input');
             const sections = document.querySelectorAll('#playlist-container .section');
-
-            allLibraryAudios.forEach((audio, index) => {{
-                audio.addEventListener('contextmenu', e => e.preventDefault());
-                audio.addEventListener('ended', () => {{
-                    for (let i = index + 1; i < allLibraryAudios.length; i++) {{
-                        if (allLibraryAudios[i].closest('.track').style.display !== 'none') {{
-                            allLibraryAudios[i].play();
-                            break;
-                        }}
-                    }}
-                }});
-                audio.addEventListener('play', () => {{
-                    document.querySelectorAll('audio').forEach(o => {{ if (o !== audio) o.pause(); }});
-                }});
-            }});
 
             searchInput.addEventListener('input', (e) => {{
                 const term = e.target.value.toLowerCase().trim();
                 sections.forEach(section => {{
+                    const sectionName = section.getAttribute('data-section-name') || '';
                     const tracks = section.querySelectorAll('.track');
-                    let visible = 0;
+                    let visibleCount = 0;
+
                     tracks.forEach(track => {{
                         const title = track.getAttribute('data-title') || '';
-                        if (title.includes(term)) {{
+                        // Corrispondenza se il termine è nel nome del brano O nel nome della cartella
+                        if (title.includes(term) || sectionName.includes(term)) {{
                             track.style.display = 'flex';
-                            visible++;
+                            visibleCount++;
                         }} else {{
                             track.style.display = 'none';
                         }}
                     }});
+
                     const details = section.querySelector('details');
-                    if (visible > 0) {{
+                    if (visibleCount > 0) {{
                         section.style.display = 'block';
-                        if (term !== '') details.setAttribute('open', 'open');
+                        if (term !== '') {{
+                            details.setAttribute('open', 'open');
+                        }}
                     }} else {{
                         section.style.display = 'none';
                     }}
                 }});
             }});
 
+            attachGlobalAudioHandlers();
             updateUI();
         }});
     </script>
